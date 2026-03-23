@@ -1,0 +1,26 @@
+<?php
+return [
+	'ID' => 'ID',
+	'Equipamento' => 'Equipamento',
+	'Empresa ID' => 'Empresa ID',
+	'Num Serie' => 'Num Serie',
+	'Avaliação Última' => 'Avaliação Última',
+	'Acessorios' => 'Acessorios',
+	'Caixa' => 'Caixa',
+	'Data' => 'Data',
+	'Avaliação Estado' => 'Avaliação Estado',
+	'Image Manager Id Avatar' => 'Image Manager Id Avatar',
+	'Avaliação Próxima' => 'Avaliação Próxima',
+	'Descricao' => 'Descricao',
+	'Estado ID' => 'Estado ID',
+	'Fornecedor' => 'Fornecedor',
+	'Num Interno' => 'Num Interno',
+	'Marca' => 'Marca',
+	'Modelo' => 'Modelo',
+	'Sub Familia ID' => 'Sub Familia ID',
+	'Observacoes' => 'Observacoes',
+	'Familia ID' => 'Familia ID',
+	'Avaliação Observações' => 'Avaliação Observações',
+	'Localização' => 'Localização',
+
+];

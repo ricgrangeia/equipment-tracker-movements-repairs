@@ -1,0 +1,7 @@
+suite_namespace: app\modules\Ajax\tests\functional
+actor: FunctionalTester
+modules:
+    enabled:
+        - Filesystem
+        - Asserts
+        - Yii2

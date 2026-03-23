@@ -1,0 +1,25 @@
+<?php
+
+return[
+	'Altura Evento Procedimento' => 'Altura Evento Procedimento',
+	'Create New' => 'Criar Novo',
+	'Delete' => 'Eliminar',
+	'Resize Column' => 'Redimensionar Coluna',
+	'Delete All' => 'Eliminar Todos',
+	'Update' => 'Atualizar',
+	'Create More' => 'Criar Mais',
+	'View' => 'Ver',
+	'Reset Grid' => 'Reset Grid',
+	'Success' => 'Sucesso',
+	'Delete Confirm' => 'Confirmar Eliminação',
+	'Create' => 'Criar',
+	'Close' => 'Fechar',
+	'Save' => 'Gravar',
+	'With selected' => 'Seleccionados',
+	'Created With' => 'Criado Com',
+	'Updated With' => 'Atualizado Com',
+	'Update Again' => 'Actualizar Novamente',
+	'Update Confirm' => 'Confirma Atualização',
+	'Update All' => 'Atualizar Todos',
+	'Will update all selected, same as first selected. Are you sure?' => 'Vai atualizar todos os selecionados, igual ao primeiro selecionado. Tem a certeza?',
+];
