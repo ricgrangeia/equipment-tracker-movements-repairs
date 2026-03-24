@@ -4,8 +4,8 @@ services:
     container_name: yii2-demo-app
     volumes:
       - ./app:/app
-    ports:
-      - "8000:80"
+    #ports:
+    #  - "8000:80"
     environment:
       - PHP_ENABLE_XDEBUG=
       - XDEBUG_MODE=off
