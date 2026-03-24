@@ -1,3 +1,9 @@
+networks:
+  proxy:
+    name: 'proxy-network'
+    external: true
+
+
 services:
   php:
     build: .
@@ -6,8 +12,11 @@ services:
       - ./app:/app
     #ports:
     #  - "8000:80"
+    networks:
+      - proxy
+      
     environment:
-      - PHP_ENABLE_XDEBUG=
+      - PHP_ENABLE_XDEBUG=0
       - XDEBUG_MODE=off
       # Enable the mode and start request
       #- XDEBUG_MODE=debug
