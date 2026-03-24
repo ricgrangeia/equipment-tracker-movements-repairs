@@ -20,9 +20,9 @@ use yii\helpers\Url;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'equipamento_id')->widget(\kartik\select2\Select2::classname(), [
-        'data' => ArrayHelper::map(\app\modules\Equipamento\Domain\Entity\Equipamento::find()->all(), 'id', function($model) {
-            return $model['num_interno'].' - '.$model['equipamento'].' - '.$model['marca'];
+    <?= $form->field($model, 'equipamento_id')->widget(\kartik\select2\Select2::class, [
+        'data' => ArrayHelper::map(\app\modules\Equipamento\Domain\Entity\Equipamento::find()->all(), 'id', function ($model) {
+            return $model['num_interno'] . ' - ' . $model['equipamento'] . ' - ' . $model['marca'];
         }),
         'options' => ['placeholder' => 'Escolher equipamento...'],
         'pluginOptions' => [
@@ -32,40 +32,21 @@ use yii\helpers\Url;
     ?>
 
 
-<!---->
-<!--    --><?//= $form->field($model, 'equipamento_id')->widget(Select2::classname(), [
-//       'data' => ArrayHelper::map(\app\modules\Equipamento\Domain\Entity\Equipamento::find()->all(), 'id', function($model) {
-//            return $model['num_interno'].' - '.$model['equipamento'].' - '.$model['marca'];
-//        }),
-//
-//        'options' => ['id' => 'equipamento-id', 'placeholder' => 'Escolher equipamento...'],
-//        'pluginOptions' => [
-//            'allowClear' => true
-//
-//        ],
-//    ]);
-//
-//    ?>
-<!---->
-<!---->
-<!---->
-<!--    --><?//= $form->field($model, 'equipamento_id')->widget(Typeahead::classname(), [
-//        'options' => ['placeholder' => 'Escreva algo ...'],
-//        'pluginOptions' => ['highlight' => true],
-//        'dataset' => [
-//            [
-//                'local' => ArrayHelper::getColumn(\app\models\EquipamentoReparacao::find()->select('entidade_reparadora')->distinct()->asArray()->all(), 'entidade_reparadora'),
-//                'limit' => 10
-//            ]
-//        ]
-//    ]); ?>
+    <!-- <?= $form->field($model, 'equipamento_id')->widget(Select2::class, [
+                'data' => ArrayHelper::map(\app\modules\Equipamento\Domain\Entity\Equipamento::find()->all(), 'id', function ($model) {
+                    return $model['num_interno'] . ' - ' . $model['equipamento'] . ' - ' . $model['marca'];
+                }),
 
+                'options' => ['id' => 'equipamento-id', 'placeholder' => 'Escolher equipamento...'],
+                'pluginOptions' => [
+                    'allowClear' => true
 
-<!--    --><?//= $form->field($model, 'entidade_reparadora')->textInput(['maxlength' => true]) ?>
+                ],
+            ]);
 
-<!--    --><?php //var_dump(ArrayHelper::getColumn(\app\models\EquipamentoReparacao::find()->select('entidade_reparadora')->distinct()->asArray()->all(), 'entidade_reparadora')); ?>
+            ?>
 
-    <?= $form->field($model, 'entidade_reparadora')->widget(Typeahead::classname(), [
+    <?= $form->field($model, 'equipamento_id')->widget(Typeahead::class, [
         'options' => ['placeholder' => 'Escreva algo ...'],
         'pluginOptions' => ['highlight' => true],
         'dataset' => [
@@ -76,7 +57,23 @@ use yii\helpers\Url;
         ]
     ]); ?>
 
-    <?= $form->field($model, 'data_envio')->widget(\kartik\date\DatePicker::classname(), [
+
+    <?= $form->field($model, 'entidade_reparadora')->textInput(['maxlength' => true]) ?>
+
+    <?php var_dump(ArrayHelper::getColumn(\app\models\EquipamentoReparacao::find()->select('entidade_reparadora')->distinct()->asArray()->all(), 'entidade_reparadora')); ?> -->
+
+    <?= $form->field($model, 'entidade_reparadora')->widget(Typeahead::class, [
+        'options' => ['placeholder' => 'Escreva algo ...'],
+        'pluginOptions' => ['highlight' => true],
+        'dataset' => [
+            [
+                'local' => ArrayHelper::getColumn(\app\models\EquipamentoReparacao::find()->select('entidade_reparadora')->distinct()->asArray()->all(), 'entidade_reparadora'),
+                'limit' => 10
+            ]
+        ]
+    ]); ?>
+
+    <?= $form->field($model, 'data_envio')->widget(\kartik\date\DatePicker::class, [
         'options' => ['placeholder' => 'Escolher data ...'],
         'pluginOptions' => [
             'autoclose' => true,
@@ -85,7 +82,7 @@ use yii\helpers\Url;
         ]
     ]); ?>
 
-    <?= $form->field($model, 'data_recepcao')->widget(\kartik\date\DatePicker::classname(), [
+    <?= $form->field($model, 'data_recepcao')->widget(\kartik\date\DatePicker::class, [
         'options' => ['placeholder' => 'Escolher data ...'],
         'pluginOptions' => [
             'autoclose' => true,
@@ -94,7 +91,7 @@ use yii\helpers\Url;
         ]
     ]); ?>
 
-    <?= $form->field($model, 'data_prox_manutencao')->widget(\kartik\date\DatePicker::classname(), [
+    <?= $form->field($model, 'data_prox_manutencao')->widget(\kartik\date\DatePicker::class, [
         'options' => ['placeholder' => 'Escolher data ...'],
         'pluginOptions' => [
             'autoclose' => true,
