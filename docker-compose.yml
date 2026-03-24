@@ -2,7 +2,8 @@ networks:
   proxy:
     name: 'proxy-network'
     external: true
-
+  yii2-network:
+    driver: bridge
 
 services:
   php:
@@ -14,6 +15,7 @@ services:
     #  - "8000:80"
     networks:
       - proxy
+      - yii2-network
       
     environment:
       - PHP_ENABLE_XDEBUG=0
@@ -45,6 +47,7 @@ services:
       - MYSQL_DATABASE=yii2basic
       - MYSQL_USER=yii2user
       - MYSQL_PASSWORD=yii2pass
-
+    networks:
+      - yii2-network
 volumes:
   db-data:
