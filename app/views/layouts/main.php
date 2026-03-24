@@ -1,4 +1,24 @@
+
+
 <?php
+
+// No topo do ficheiro views/layouts/main.php
+
+// 1. Regista o ficheiro externo
+$this->registerJsFile('https://www.googletagmanager.com/gtag/js?id=G-DN053M6RBJ', [
+    'async' => true,
+    'position' => \yii\web\View::POS_HEAD,
+]);
+
+// 2. Regista a configuração inline
+$js = <<<JS
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DN053M6RBJ');
+JS;
+
+$this->registerJs($js, \yii\web\View::POS_HEAD);
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -79,3 +99,5 @@ AppAsset::register($this);
 </body>
 </html>
 <?php $this->endPage() ?>
+
+
