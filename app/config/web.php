@@ -5,7 +5,7 @@ $email = require __DIR__ . '/email.php';
 $db = require __DIR__ . '/db.php';
 
 $config = [
-    'name' => 'Equipamentos',
+    'name' => 'GestAssets',
     'language' => 'pt-PT',
     'sourceLanguage' => 'pt-PT',
     'id' => 'basicGestaoEquipamentos',
