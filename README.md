@@ -1,4 +1,4 @@
-# Equipamentos
+# Equipments Gest Assets
 
 Yii2 web application for managing equipment, repairs, employees, companies, locations, fixed assets, and related support tables.
 
@@ -34,6 +34,15 @@ This project is based on the **Yii2 Basic App** template and has been customized
 - bedezign/yii2-audit
 - petersonsilvadejesus/yii2-image-manager
 - Codeception
+
+## Online Demo
+
+Demo site for testing, it resets every hour.
+
+[Demo GestAssets](https://Demo-GestAssets.appa8.com)
+
+User: demoadmin<br>
+Pass: password
 
 ## Installation
 
