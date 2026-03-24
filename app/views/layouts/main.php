@@ -2,8 +2,6 @@
 
 <?php
 
-// No topo do ficheiro views/layouts/main.php
-
 // 1. Regista o ficheiro externo
 $this->registerJsFile('https://www.googletagmanager.com/gtag/js?id=G-DN053M6RBJ', [
     'async' => true,
