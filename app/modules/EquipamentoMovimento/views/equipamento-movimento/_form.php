@@ -157,7 +157,7 @@ use yii\helpers\Url;
     </script>
 
 	<?php if ( $model->isNewRecord ) { ?>
-        <!--    --><? //= $form->field($model, 'tipo_movimento_id')->dropDownList(ArrayHelper::map(EquipamentoMovimentoTipo::find()->where(['in', 'id', [1,2]])->all(), 'id', 'tipo_movimento'), ['prompt'=>'Escolher tipo movimento...']); ?>
+        
 
 		<?= $form->field( $model, 'tipo_movimento_id' )->widget( DepDrop::class, [
 			'type' => DepDrop::TYPE_SELECT2,
@@ -174,7 +174,7 @@ use yii\helpers\Url;
 		?>
 	<?php } ?>
 	<?php if ( $model->isNewRecord ) { ?>
-        <!--    --><? //= $form->field($model, 'destino_id')->dropDownList(ArrayHelper::map(\app\models\Funcionario::find()->orderBy(['nome'=>SORT_ASC])->all(), 'id', 'nome')); ?>
+       
 
 		<?= $form->field( $model, 'destino_id' )->widget( DepDrop::class, [
 			'type' => DepDrop::TYPE_SELECT2,
@@ -194,25 +194,26 @@ use yii\helpers\Url;
 
 
 		<?php if ( $model->isLastMovimento() ) { ?>
-            <!--    --><? //= $form->field($model, 'destino_id')->dropDownList(ArrayHelper::map(\app\models\Funcionario::find()->orderBy(['nome'=>SORT_ASC])->all(), 'id', 'nome')); ?>
+              <!-- <? $form->field($model, 'destino_id')->dropDownList(ArrayHelper::map(\app\models\Funcionario::find()->orderBy(['nome'=>SORT_ASC])->all(), 'id', 'nome')); ?> -->
 
 
-            <!--            --><? //= Html::hiddenInput('equipamento-id', $model->equipamento_id, ['id' => 'equipamento-id']); ?>
-            <!---->
-            <!---->
-            <!--        --><? //= $form->field($model, 'destino_id')->widget(DepDrop::classname(), [
-			//            'type' => DepDrop::TYPE_SELECT2,
-			//            'data' => [$model->tipo_movimento_id => $model->tipo_movimento_id],
-			//            'options' => ['id' => 'destino-id'],
-			//            'pluginOptions' => [
-			//                'depends' => ['equipamento-id'],
-			//                'placeholder' => 'Escolher destino...',
-			//                'url' => Url::to(['funcionario/destinos-permitidos']),
-			//                'initialize' => true,
-			//                'params' => [$model->equipamento_id, $model->destino_id]
-			//            ]
-			//        ]);
-			//        ?>
+            <!-- <? Html::hiddenInput('equipamento-id', $model->equipamento_id, ['id' => 'equipamento-id']); ?> -->
+            
+            
+            <!-- <? $form->field($model, 'destino_id')->widget(DepDrop::classname(), [
+			            'type' => DepDrop::TYPE_SELECT2,
+			            'data' => [$model->tipo_movimento_id => $model->tipo_movimento_id],
+			            'options' => ['id' => 'destino-id'],
+			            'pluginOptions' => [
+			                'depends' => ['equipamento-id'],
+			                'placeholder' => 'Escolher destino...',
+			                'url' => Url::to(['funcionario/destinos-permitidos']),
+			                'initialize' => true,
+			                'params' => [$model->equipamento_id, $model->destino_id]
+			            ]
+			        ]);
+			        
+            ?> -->
 
 		<?php }
 	} ?>

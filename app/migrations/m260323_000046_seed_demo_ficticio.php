@@ -45,13 +45,17 @@ class m260323_000046_seed_demo_ficticio extends Migration
             [10, 7, 'REBARBADORA INDUSTRIAL'],
         ]);
 
-        // 6. Funcionários (5 Nomes Inventados)
+        // 6. Funcionários (Ajustado: 'tipo' agora recebe o ID da tabela funcionario_tipo)
+        // IDs: 1 = Funcionário, 2 = Localização, 3 = Fornecedor
         $this->batchInsert('{{%funcionario}}', ['id', 'nome', 'tipo', 'localization', 'ativo'], [
-            [1, 'Clark Kent (Super-Homem)', 'Gestor de Crises', 1, 1],
-            [2, 'Zeus do Copérnico', 'Diretor de Energia', 2, 1],
-            [7, 'Tony Stark', 'Engenheiro Principal', 3, 1],
-            [13, 'Nicolau Copérnico (O Vigilante)', 'Navegador', 3, 1],
-            [15, 'Diana Prince (Mulher-Maravilha)', 'Segurança', 2, 1],
+            [1, 'Clark Kent (Super-Homem)', 'Funcionário', 1, 1],
+            [2, 'Zeus do Copérnico', 'Funcionário', 2, 1],
+            [7, 'Tony Stark', 'Funcionário', 3, 1],
+            [13, 'Nicolau Copérnico (O Vigilante)', 'Funcionário', 3, 1],
+            [15, 'Diana Prince (Mulher-Maravilha)', 'Funcionário', 2, 1],
+            // Exemplo de uma Localização registada como "funcionário" para logística
+            [20, 'Contentor de Obra A1', 'Localização', 1, 1],
+            [21, 'SEDE', 'Localização', 1, 1],
         ]);
 
         // 7. Equipamentos (15 Itens com Marcas/Modelos Inventados)

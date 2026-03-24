@@ -1,0 +1,54 @@
+networks:
+  yii2-network:
+    driver: bridge
+
+services:
+  php:
+    build: .
+    container_name: yii2-demo-app
+    volumes:
+      - ./app:/app
+    ports:
+      - "8000:80"
+    networks:
+      - yii2-network
+      
+    environment:
+      - PHP_ENABLE_XDEBUG=0
+      - XDEBUG_MODE=off
+      # Enable the mode and start request
+      #- XDEBUG_MODE=debug
+      #- XDEBUG_CONFIG=client_host=host.docker.internal client_port=9005
+      #- XDEBUG_START_WITH_REQUEST=yes
+    # This helps Linux users, but is good practice for all
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - db
+    labels:
+      - "traefik.enable=true"
+      # Configuração HTTPS
+      - "traefik.http.routers.yii2-app-secure.rule=Host(`Demo-GestAssets.appa8.com`)"
+      - "traefik.http.routers.yii2-app-secure.entrypoints=websecure"
+      - "traefik.http.routers.yii2-app-secure.tls=true"
+      - "traefik.http.routers.yii2-app-secure.tls.certresolver=letsencrypt"
+      - "traefik.http.services.yii2-app.loadbalancer.server.port=80"
+
+  db:
+    image: mysql:8.0
+    container_name: yii2-demo-db
+    #volumes:
+    #  - db-data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root_password
+      - MYSQL_DATABASE=yii2basic
+      - MYSQL_USER=yii2user
+      - MYSQL_PASSWORD=yii2pass
+
+    ports:
+      - "33066:3306"
+
+    networks:
+      - yii2-network
+volumes:
+  db-data:

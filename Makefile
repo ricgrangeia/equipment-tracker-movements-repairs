@@ -1,8 +1,9 @@
 # Variáveis
 DC = docker-compose
+DC_LOCAL = $(DC) -f docker-compose.local.yml
 APP_CONTAINER = yii2-demo-app
 
-.PHONY: up down restart build logs shell fresh seed-epic help
+.PHONY: up down restart build logs shell fresh seed-epic help restart-local
 
 ## up: Inicia os contentores em background
 up:
@@ -16,8 +17,14 @@ down:
 build:
 	$(DC) build --no-cache
 
-## restart: Reinicia os serviços
+## restart: Reinicia os serviços (padrão)
 restart: down up
+
+## restart-local: Reinicia os serviços usando o docker-compose.local.yml
+restart-local:
+	$(DC_LOCAL) down
+	$(DC_LOCAL) up -d
+	@echo "Serviços locais reiniciados com sucesso!"
 
 ## logs: Mostra os logs do contentor PHP em tempo real
 logs:
@@ -42,4 +49,4 @@ demo-reset: fresh seed-epic
 ## help: Mostra esta ajuda
 help:
 	@echo "Comandos disponíveis:"
-	@sed -n 's/^##//p' $(MAKEFILE) | column -t -s ':' |  sed -e 's/^/ /'
+	@sed -n 's/^##//p' Makefile | column -t -s ':' |  sed -e 's/^/ /'
